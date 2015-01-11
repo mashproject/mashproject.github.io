@@ -1,4 +1,5 @@
 <?php
+header("Access-Control-Allow-Origin: *");
 require_once("MailChimp.class.php");
 $email = $_POST['email'];
 $MailChimp = new MailChimp('664764f7e92f445f582e24a25263e8ad-us9');

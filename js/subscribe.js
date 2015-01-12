@@ -5,7 +5,7 @@ $(document).ready(function () {
         var txtEmail = $('#txtSubscribeEmail').val();        
             var ajaxRequest = $.post(
              "js/handlers/subscribe.php" ,{ email: txtEmail },function(data,status){
-    alert("Thank you for Subscribing");
+    alert("Thank you for subscribing.Please check your email to confirm");
              });        
     });
 });

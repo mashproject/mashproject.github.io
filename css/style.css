@@ -85,9 +85,18 @@ p
 .logo img{
 	height: 50px;
 }
-.caption h4{
+.caption {
 	text-align: center;
 }
+.caption1 h4{
+
+text-align: center;
+}
+.caption1 p{
+
+text-align: justify;
+}
+
 /*=====HOME COVER IMAGE=====*/
 .portfolio-modal .modal-content {
     padding: 100px 0;
@@ -231,6 +240,7 @@ border-bottom: 8px solid #01a89e;
 	color: #01a89e;
 	padding-bottom: 10px;
 }
+
 .img-thumbnail-circle
 {
 	border-radius: 30%;

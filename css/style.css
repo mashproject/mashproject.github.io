@@ -537,12 +537,20 @@ section#contact .text-danger {
 	background-image: url(../img/team/Namrata-Gupta.jpg);
 }
 .ch-neha-rani{
-	background-image: url(../img/team/Neha-rani.jpg);
+	background-image: url(../img/team/Neha-Rani.jpg);
 }
 .ch-deepansh-goyal{
 	background-image: url(../img/team/Deepansh-Goyal.jpg);
 }
-
+.ch-amanat-khullar{
+	background-image: url(../img/team/Amanat-Khullar.jpg);	
+}
+.ch-misha-dwivedi{
+	background-image: url(../img/team/Misha-Dwivedi.jpg);
+}
+.ch-siddhant-gupta{
+	background-image: url(../img/team/Siddhant-Gupta.jpg);
+}
 
 .ch-info h4 {
 	color: #fff;

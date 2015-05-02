@@ -77,37 +77,21 @@
 		<script src="js/ie10-viewport-bug-workaround.js"></script>
 		<script type="text/javascript">
 			$("#target").submit(function( event ) {
-  		 	/*var data = {
+  		 	var data = {
   		 	"email":$("#target").find("#inputEmail").val(),
   		 	"story":$("#target").find("textarea").val(),
   		 	"gender":$('input[name="genInfo"]:checked').val(),
   		 	"app":$('input[name="appChoice"]:checked').val(),
   		 	"name":$("#target").find("#inputname").val()
-  		 	};*/
+  		 	};
   		 	
-  		 	$.ajax({
-    url: '52.74.102.84:4000/redspot',
-    type: 'post',
-    data: {
-       "email":$("#target").find("#inputEmail").val(),
-  		 	"story":$("#target").find("textarea").val(),
-  		 	"gender":$('input[name="genInfo"]:checked').val(),
-  		 	"app":$('input[name="appChoice"]:checked').val(),
-  		 	"name":$("#target").find("#inputname").val()
-    },
-    headers: { "Content-Type" : "application/json"
-    },
-    dataType: 'json',
-    success: function (data) {
-        console.log(data);
-    }
-	});	
-/*
-  		 	$.post( "http://52.74.102.84:4000/redspot", function(data) {
-  				alert( data + "success" );
-				});
-*/  		 	
-  		 	 event.preventDefault();
+		
+  		 	$.post( "http://52.74.102.84:4000/redspot",data, function(data) {
+  				alert( "Thank you for sharing your story with us. You'll shortly receive an e-mail regarding the same." );
+				$("#target").trigger('reset'); 
+                });
+	 	
+  		 	event.preventDefault();
 			});
 	
 

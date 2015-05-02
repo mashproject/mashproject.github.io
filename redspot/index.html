@@ -89,6 +89,8 @@
   		 	$.post( "http://52.74.102.84:4000/redspot",data, function(data) {
   				alert( "Thank you for sharing your story with us. You'll shortly receive an e-mail regarding the same." );
 				$("#target").trigger('reset'); 
+                }).fail(function(err, status){
+                alert("Issue in server try after some time");
                 });
 	 	
   		 	event.preventDefault();

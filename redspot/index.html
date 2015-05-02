@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>#ICanProtectMyself</title>
+	<link href="Styles/bootstrap.min.css" rel="stylesheet" />
+</head>    
+<body style="background: url('./static/redspot.jpg');background-color:#FFFFFF; background-size: 1440px 800px;">
+<div class="container col-lg-offset-3 col-lg-6" style=" opacity: .85;
+    filter: alpha(opacity=90); background-color:black;color:white;padding-top:30px;margin-top:40px;margin-bottom:40px;padding:20px; border-radius:20px 20px 20px 20px;" >
+   	
+		<form id="target" class="form-horizontal" method="post" >
+			<div class="col-sm-offset-3"><h2>#ICanProtectMyself</h2></div>
+			<hr>
+			
+			<div><p dir="ltr"><strong>#ICanProtectMyself</strong> is to inspire people to share their experiences in the wake of fighting the stigma attached with those who have suffered sexual abuse.</p>
+            <p dir="ltr">Share your brave story where you or your any acquaintance fought or witnessed any form of&nbsp; sexual abuse (stalking, eve-teasing, indecent behavior, molestation, sexual assault).</p>
+            <p dir="ltr">Your story might be a lesson for someone else. Get involved!</p><br/>
+          </div>
+			
+				<h4 style="color:red;">My Story<span style="color:red;">*</span></h4>
+				<textarea class="form-control container" rows="5" id="comment" placeholder="Share your experience with us." style="color:white;background-color:black;" required autofocus></textarea>
+				<span class="icon-place"></span>
+			
+			<br/>
+			
+				<h4 style="color:red;">Gender<span style="color:red;">*</span></h4>
+				
+				<div class="radio-inline" >
+					<label><input type="radio" name="genInfo" value="Male" required="required"/>Male</label>
+				</div>
+				<div class="radio-inline">
+					<label><input type="radio" name="genInfo" value="Female" required="required"/>Female</label>
+				</div>
+				<div class="radio-inline">
+					<label><input type="radio" name="genInfo" value="Other" required="required"/>Other</label>
+				</div>
+			
+			
+
+			
+				<h4 style="color:red;">Do you use any mobile Apps for Safety?<span style="color:red;">*</span></h4>
+				<div class="radio-inline">
+					<label><input type="radio" name="appChoice" value="Yes" required="required"/>Yes</label>
+				</div>
+				<div class="radio-inline">
+					<label><input type="radio" name="appChoice" value="No" required="required"/>No</label>
+				</div>
+				<div class="radio-inline">
+					<label><input type="radio" name="appChoice" value="Nobutwant" required="required"/>No but I want to use</label>
+				</div>
+		
+			<br/>
+
+			
+				<h4 style="color:red;">Email<span style="color:red;">*</span></h4>
+				<input type="email" id="inputEmail" class="form-control" style=" color:white;background-color:black;"placeholder="Email id will be confidential" required>
+			
+			<br/>
+
+			
+				<h4 style="color:red;">Name</h4> 
+				<input type="text" id="inputname" class="form-control" style=" color:white;background-color:black;" placeholder="Leave blank to post as anonymmous" ><br/>
+
+				<button type="submit" class="btn btn-primary ">Submit form</button>
+			</form>
+			<br>
+			<hr/>
+<div id="text_17">
+            <p><strong>RedSpot</strong> is<strong> MASH Project</strong>'s initiative raising voice against Sexual Abuse and society's stereotypical notions around it. It aims to raise awareness and deploy technology-enabled solutions to fight the odds.<br>Website:&nbsp;<a target="_blank" href="http://www.mashglobal.org/"><span style="color:#0000ff;">www.mashglobal.org/</span></a><br>Donate:&nbsp;<a target="_blank" href="http://tinyurl.in/fBKqI"><span style="color:#0000ff;">http://tinyurl.in/fBKqI</span></a></p>
+          </div>
+
+		</div>
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery-1.10.2.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/ie-emulation-modes-warning.js"></script>
+		<script src="js/ie10-viewport-bug-workaround.js"></script>
+		<script type="text/javascript">
+			$("#target").submit(function( event ) {
+  		 	var data = {
+  		 	"email":$("#target").find("#inputEmail").val(),
+  		 	"story":$("#target").find("textarea").val(),
+  		 	"gender":$('input[name="genInfo"]:checked').val(),
+  		 	"app":$('input[name="appChoice"]:checked').val(),
+  		 	"name":$("#target").find("#inputname").val()
+  		 	};
+  		 	
+		
+  		 	$.post( "http://52.74.102.84:4000/redspot",data, function(data) {
+  				alert( "Thank you for sharing your story with us. You'll shortly receive an e-mail regarding the same." );
+				$("#target").trigger('reset'); 
+                }).fail(function(err, status){
+                alert("Server error encountered Please try after some time");
+                });
+	 	
+  		 	event.preventDefault();
+			});
+	
+
+	</script>
+	</body>
+	</html>

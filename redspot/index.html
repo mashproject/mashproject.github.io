@@ -64,7 +64,7 @@
 				<h4 style="color:red;">Name</h4> 
 				<input type="text" id="inputname" class="form-control" style=" color:white;background-color:black;" placeholder="Leave blank to post as anonymous" ><br/>
 
-				<button type="submit" class="btn btn-primary ">Submit form</button>
+				<button type="submit" id="submitButton" class="btn btn-primary ">Submit form</button>
 			</form>
 			<br>
 			<hr/>
@@ -80,6 +80,7 @@
 		<script src="js/ie10-viewport-bug-workaround.js"></script>
 		<script type="text/javascript">
 			$("#target").submit(function( event ) {
+				document.getElementById("submitButton").disabled = true;
   		 	var data = {
   		 	"email":$("#target").find("#inputEmail").val(),
   		 	"story":$("#target").find("textarea").val(),
@@ -88,11 +89,13 @@
   		 	"name":$("#target").find("#inputname").val()
   		 	};
   		 	
-		
+			
   		 	$.post( "http://52.74.102.84:4000/redspot",data, function(data) {
+  		 		document.getElementById("submitButton").disabled = false;
   				alert( "Thank you for sharing your story with us. You'll shortly receive an e-mail regarding the same." );
 				$("#target").trigger('reset'); 
                 }).fail(function(err, status){
+                	document.getElementById("submitButton").disabled = false;
                 alert("Server error encountered Please try after some time");
                 });
 	 	

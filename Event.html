@@ -1,0 +1,166 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="/bower_components/bootstrap-horizon/bootstrap-horizon.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<link href="css/event.css" rel="stylesheet">
+<body>
+<section id="event_det" ng-controller="singlEventCtrl">    
+    <header id="header" role="banner">
+        <div class="main-nav">
+            <div class="container">
+                <div class="header-top">
+                    <ul class="pull-right social-icons">
+                        <li><a href="https://www.facebook.com/MashProject" target="_blank"> <img
+                                style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                                src="http://mashglobal.org/img/icons/Facebook.png" alt="Facebook"> </a></li>
+                        <li><a href="https://twitter.com/mash_project" target="_blank"> <img
+                                style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                                src="http://mashglobal.org/img/icons/Twitter.png" alt="Twitter"> </a></li>
+                        <li><a href="https://plus.google.com/u/0/118420471642649699506/posts" target="_blank"> <img
+                                style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                                src="http://mashglobal.org/img/icons/Google.png" alt="Goggle+"> </a></li>
+                        <li><a href="https://instagram.com/mash_project/" target="_blank"> <img
+                                style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                                src="http://mashglobal.org/img/icons/Instagram.png" alt="Instagram"> </a></li>
+                        <li><a href="https://officialmashproject.wordpress.com/about/" target="_blank"> <img
+                                style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                                src="http://mashglobal.org/img/icons/Wordpress.png" alt="Wordpress"> </a></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <!-- <a class="navbar-brand" href="index.html">
+                            <img src="images/logo.jpg" class="img-responsive"> </a> -->
+                    </div>
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="scroll active"><a href="#/events/{{event.id}}#eventHome">Home</a></li>
+                            <li class="scroll"><a href="#/events/{{event.id}}#eventAbout">About</a></li>
+                            <li id = "eventRegister" class="scroll"><a href="{{event.regiteration_link}}">Register</a></li>
+                            <li class="scroll"><a href="#/events/{{event.id}}#eventPartners">Partners</a></li>
+                            <li class="scroll"><a href="#/events/{{event.id}}#eventAlbum">Album</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--/#header-->
+    <section id="eventHome">
+        <div id="main-slider" class="carousel slide" data-ride="carousel">            
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img class="img-responsive" src="{{event.image_url}}" alt="slider">
+
+                    <div class="carousel-caption">
+                        <h2>{{event.title}}</strong> </h2>
+                        <a href="https://twitter.com/mash_project" target="_blank">Join Us On {{event.pub_date}}<i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>                
+            </div>
+        </div>
+    </section>
+    <!--/#home-->
+    <section id="eventAbout">
+        <div class="container">
+            <div class="row">
+                <div class="about-content col-md-9">
+                    <h2>About Event</h2>
+
+                    <p>{{event.description}}</em></p>
+                    <a class ="eventMoreDetails" href="{{event.url}}" target="_blank">More Details<i class="fa fa-angle-right"></i></a>
+                </div>
+                <div class="guitar">
+                    <img class="img-responsive" src="images/about.png" alt="guitar">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#about-->
+    <section id="eventPartners">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="heading">PARTNERS</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-repeat="supporter in supporters">
+                    <div class="col-xs-6 col-md-3">
+                        <div class="single-event">                            
+                            <a href= "{{supporter.url}}">
+                            <img class="img-responsive" src="{{supporter.image_url}}" alt="event-image" >
+                            <div>{{supporter.name}}</div>
+                            <div><b>{{supporter.title}}</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--/#explore-->
+    <section id="eventAlbum">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="heading">Album</h2>
+                </div>
+            </div>
+            <div ng-bind-html="event.gallery_div | to_trusted"></div>
+            <script type="text/javascript">
+                var cpo = []; 
+                cpo["_object"] ="cp_widget_e06b819b-6c08-4e8b-b344-5aaa383afae7"; 
+                cpo["_fid"] = "AEGAp9MsBtAG";
+                var _cpmp = _cpmp || []; 
+                _cpmp.push(cpo);
+                (function() { 
+                    var cp = document.createElement("script"); 
+                    cp.type = "text/javascript";
+                    cp.async = true; 
+                    cp.src = "http://www.cincopa.com/media-platform/runtime/libasync.js";
+                    var c = document.getElementsByTagName("script")[0];
+                    c.parentNode.insertBefore(cp, c); })(); 
+            </script>
+        </div>        
+    </section>
+    
+    
+
+    <footer id="footer">
+        <div class="container">
+            <ul class="pull-right social-icons">
+                <li><a href="https://www.facebook.com/MashProject" target="_blank"> <img
+                        style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                        src="http://mashglobal.org/img/icons/Facebook.png" alt="Facebook"> </a></li>
+                <li><a href="https://twitter.com/mash_project" target="_blank"> <img
+                        style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                        src="http://mashglobal.org/img/icons/Twitter.png" alt="Twitter"> </a></li>
+                <li><a href="https://plus.google.com/u/0/118420471642649699506/posts" target="_blank"> <img
+                        style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                        src="http://mashglobal.org/img/icons/Google.png" alt="Goggle+"> </a></li>
+                <li><a href="https://instagram.com/mash_project/" target="_blank"> <img
+                        style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                        src="http://mashglobal.org/img/icons/Instagram.png" alt="Instagram"> </a></li>
+                <li><a href="https://officialmashproject.wordpress.com/about/" target="_blank"> <img
+                        style="border: 0;-ms-interpolation-mode: bicubic;display: block"
+                        src="http://mashglobal.org/img/icons/Wordpress.png" alt="Wordpress"> </a></li>
+            </ul>
+        </div>
+    </footer>
+    <!--/#footer-->
+    <script type="text/javascript" src="js/event.js"></script>
+    <script type="text/javascript" src="js/smoothscroll.js"></script>
+    <script type="text/javascript" src="js/jquery.parallax.js"></script>
+</section>
+

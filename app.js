@@ -65,12 +65,12 @@ app.controller('eventCtrl', ['$scope', '$http', '$state',
         // if(eventsData.length == 0){
             console.log('loading all published events');
             $http.get(HOST+'/events/?is_published=true').success(function (data) {
-                console.log(data)
+                console.log(data);
                 $scope.events = data;
                 for (var i=0; i<data.length; i++){
                     eventsData[data[i].id] = data[i];
-                    eventsIds[i] = data[i].id
-                    $scope.events[i].typeImage = eventsTypeDefaultImages[data[i].type_id]
+                    eventsIds[i] = data[i].id;
+                    $scope.events[i].typeImage = eventsTypeDefaultImages[data[i].type_id];
                     $scope.events[i].pub_date = dateFormatter(data[i].pub_date)
                 }
             });
@@ -97,7 +97,7 @@ app.controller('supportersCtrl', ['$scope', '$http', '$state',
         console.log('loading all supporters');
         $http.post(HOST+'/events/supporters', {"ids":globalSupportersIds}).success(function (data) {                    
             $scope.supporters = data;
-            console.log(data)
+            console.log(data);
             for(var i=0; i<data.length;i++){
                 $scope.supporters[i].image_url = mediaHOST + $scope.supporters[i].image_url;                                
             }
@@ -112,11 +112,11 @@ app.controller('singlEventCtrl', ['$scope', '$http', '$stateParams',
             $http.get(HOST+'/events?id=' + id.toString()).success(function (data) {
                 console.log("data of events rest call and loading fresh from net");
                 $scope.event = data[0];
-                $scope.event.pub_date = dateFormatter(data[0].pub_date)
+                $scope.event.pub_date = dateFormatter(data[0].pub_date);
                 console.log(data);
                 console.log({"ids":data[0].supporters});            
                 $http.post(HOST+'/events/supporters', {"ids":data[0].supporters}).success(function (data) {
-                    console.log(data)
+                    console.log(data);
                     $scope.supporters = data;
                     for(var i=0; i<data.length;i++){
                         $scope.supporters[i].image_url = mediaHOST + $scope.supporters[i].image_url;

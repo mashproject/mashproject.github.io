@@ -39,6 +39,21 @@ a:focus {
   text-decoration: none;
   color: #2a95be;
 }
+
+
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;}
+.carousel-inner .item img{
+        display: block;
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+
+
+
 hr {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
@@ -220,66 +235,7 @@ ul.nostyle i {
     background-color: transparent;
   }
 }
-#main-slider {
-  overflow: hidden;
-}
-#main-slider .item {
-  height: 558px;
-  background-repeat: no-repeat;
-  background-position: 50% 0;
-  background-size: cover;
-}
-#main-slider .slider-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-}
-#main-slider .slider-inner h2 {
-  margin-top: 180px;
-  font-size: 36px;
-  line-height: 1;
-  text-transform: uppercase;
-  color: #fff;
-}
-#main-slider .slider-inner h2 > span {
-  color: #45aed6;
-}
-#main-slider .slider-inner .btn {
-  margin-top: 10px;
-}
-#main-slider .owl-prev,
-#main-slider .owl-next {
-  position: absolute;
-  top: 50%;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #fff;
-  font-size: 30px;
-  display: inline-block;
-  margin-top: -35px;
-  height: 70px;
-  width: 70px;
-  line-height: 70px;
-  text-align: center;
-  border-radius: 100px;
-  z-index: 5;
-  -webkit-transition: background-color 400ms;
-  transition: background-color 400ms;
-}
-#main-slider .owl-prev:hover,
-#main-slider .owl-next:hover {
-  background-color: #45aed6;
-}
-#main-slider .owl-prev {
-  left: -35px;
-  text-indent: 14px;
-}
-#main-slider .owl-next {
-  right: -35px;
-  text-indent: -14px;
-}
+
 #bar {
   width: 0%;
   max-width: 100%;
@@ -586,7 +542,10 @@ ul.nostyle i {
   -webkit-transition: border-color 400ms;
 }
 #meet-team .team-member .team-img {
-  margin: -15px -15px 0 -15px;
+    margin: -15px -13px 0 -13px;
+    height: 255px;
+    width: 255px;
+    overflow: hidden;
 }
 #meet-team .team-member .team-info {
   padding-bottom: 10px;
@@ -1186,11 +1145,10 @@ label.light {
 /*-------------------------------------------------Event Details----------------------------------------------*/
 
 #event_det{
-    margin-top: 50px;
 }
 
 #event_det .description{
-    margin-top: 20px;
+
 }
 
 .name {

@@ -50,7 +50,7 @@ a:focus {
         width: 100%;
         max-width: 100%;
         height: auto;
-        max-height: 448px;
+        /*max-height: 448px;*/
 
     }
 

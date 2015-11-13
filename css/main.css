@@ -50,9 +50,14 @@ a:focus {
         width: 100%;
         max-width: 100%;
         height: auto;
+        max-height: 448px;
+
     }
 
-
+#slider{
+    max-height: 448px;
+    overflow: hidden;
+}
 
 hr {
   border-top: 1px solid #e5e5e5;

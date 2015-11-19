@@ -111,24 +111,24 @@ app.controller('singlEventCtrl', ['$scope', '$http', '$stateParams',
         if(eventsData[id] == null){            
             $http.get(HOST+'/events?id=' + id.toString()).success(function (data) {
                 console.log("data of events rest call and loading fresh from net");
+                data[0].image_url = data[0].image_url.replace("https", "http");
                 $scope.event = data[0];
                 $scope.event.pub_date = dateFormatter(data[0].pub_date);
-                console.log(data);
-                console.log({"ids":data[0].supporters});            
+                console.log({"ids":data[0].supporters});
                 $http.post(HOST+'/events/supporters', {"ids":data[0].supporters}).success(function (data) {
-                    console.log(data);
                     $scope.supporters = data;
                     for(var i=0; i<data.length;i++){
                         $scope.supporters[i].image_url = mediaHOST + $scope.supporters[i].image_url;
                         supportersData[data[i].id] = data[i]
                     }
-                    console.log("data of supporters rest call");                    
+                    console.log("data of supporters rest call");
                 });
             });
         }else{
             console.log("data not null");
+            eventsData[id].image_url = eventsData[id].image_url.replace("https", "http");
             var event = eventsData[id];
-            $scope.event = event;                
+            $scope.event = event;
                 console.log({"ids":event.supporters});
                 $http.post(HOST+'/events/supporters', {"ids":event.supporters}).success(function (data) {
                     $scope.supporters = data;
